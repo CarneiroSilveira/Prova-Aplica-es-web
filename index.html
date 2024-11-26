@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ian">
+    <meta name="keywords" content="portfólio, projetos, programação">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Feito pôr Ian Félix</title>
+</head>
+<body>
+    <section id="projects">
+        <div class="project">
+            <strong><h1>1.</h1></strong> <h2>O que é uma publicação web, quais os dois tipos de aplicações existerntes e suas principais diferenças.</h2>
+            <p>Publicação web é o ato de deixar de publico uma aplicação na internet. E os dois principais tipos de aplicações são dinamicas e staticas. As aplicações stacicas como o seu proprio nome sujere são sites aonde não possuem conteudo dinamico que possa ser armazenado no servidor e depois reutilizado pelo usuário. Um exemplo seria uma simples landing page de uma loja que possui o link para uma converça no whatsapp. Geralmente são sites mais simples utilizados principalmente como meio de publicar curriculos ou apresentar projetos ou ideias. Já sites dinamicos são o oposto. Eles podem armazenar dados e atualizar o conteudo do site constantemente. Um exemplo seria o priprio whatsapp que consegue receber textos e chamadas do cliente passar pelo servidor do app e depois chegar no destino desejado</p>
+        </div>
+        <div class="project">
+            <strong><h1>2.</h1></strong> <h2>O que é um domínio e um DNS.</h2>
+            <p>O Sistema de Nomes de Domínio (DNS) funciona quase como uma agenda de contatos no seu celular. Isso porque ele reduz a lacuna de comunicação entre computadores e humanos, ligando os nomes de domínio com os seus respectivos endereços de Protocolo de Internet (IP). E no caso o domínio seria o nome da genda de contatos. Ao digitar o nome do contato desejado ex: google.com na verdade o que o DNS por debaixo dos panos está fazendo é convertendo o nome google.com para o ip real do servidor que no caso seria 8.8.8.8</p>
+            <a href="https://www.hostinger.com.br/tutoriais/o-que-e-dns">Link de referencia</a>
+        </div>
+        <div class="project">
+            <strong><h1>3.</h1></strong> <h2>Explique o que é um servidor compartilhado e um servidor dedicado, evidenciando suas vantagens e desvantagens.</h2>
+            <p> Um servidor dedicado é um servidor físico exclusivo para um único cliente ou organização. Vantagens: Possuem maior desenpenho, maior segurnaça. Pois no caso de um outro cliente instalar um software malisioso não só ele mais vc que não tem nada haver com ele também sera prejudicado, e maior controle sobre a maquina já que vc terá acesso ao root. Desvantagens: Custo geralmente esté tipo de serviço é mais caro e mais adequado para sites com alto tráfego ou aplicações críticas. Gerenciamento requer mais conhecimento técnico para manutenção e configuração. Com grandes poderes vem grandes responsabilidades</p>
+            <p></p>
+        </div>
+        <div class="project">
+            <strong><h1>4.</h1></strong> <h2>O que é um servidor web, explique os dois principais servidores. Como fazer o backup de um projeto de forma compactada. Bem como restaurá-la Utilize imagens para Ilustrar</h2>
+
+            <p>Um servidor web é um software que armazena, processa e entrega conteúdo da web para os usuários. Ele é o principal responsavel por receber e devolver solicitações HTTP é por causa dele que é possivel acessarmos o conteudo dos sites existentes. Os seus principais exemplos são Apache HTTP Server e Nginx. Para fazer backup de um projeto podemos fazer de duas formas ou utilizamos o git para versionamento de codigo em um servidor remoto ou nos podemos compactar ele com o gzip. Comprimir uma Pasta com tar e gzip Comando: tar -czvf nome_do_arquivo.tar.gz nome_da_pasta/ . 
+                <br>-c: Cria um novo arquivo tar.
+                <br>-z: Comprime o arquivo usando gzip.
+                <br>-v: Modo verboso, mostra o progresso no terminal.
+                <br>-f: Especifica o nome do arquivo tar.
+            </p>
+            
+            <img src="./img/test1.png" alt="">
+        </div>
+        <div class="project">
+            <strong><h1>5.</h1></strong> <h2>O que é um servidor de banco de dados, explique como fazer o backup e resstaurar esse backup. Utilize Imagesn para Ilustrar. para facilitar utilize o arquivo em anexo</h2>
+            <h1>Instalação e Configuração do MariaDB</h1>
+    
+    <h2>Instala o servidor do banco de dados MariaDB</h2>
+    <pre>
+        sudo apt update
+        sudo apt install mariadb-server
+        sudo mysql_secure_installation
+    </pre>
+    <p>O <code>mysql_secure_installation</code> é rodado apenas na primeira vez durante a instalação.</p>
+    
+    <h2>Instala os conectores do banco no PHP</h2>
+    <pre>
+        sudo apt install php-mysql php-pdo
+    </pre>
+    
+    <h2>Verifica o status do servidor</h2>
+    <pre>
+        sudo service mariadb status
+    </pre>
+    
+    <h2>Inicia o servidor</h2>
+    <pre>
+        sudo service mariadb start
+    </pre>
+    
+    <h2>Para o servidor</h2>
+    <pre>
+        sudo service mariadb stop
+    </pre>
+    
+    <h2>Acessar o servidor</h2>
+    <pre>
+        sudo mysql -uroot -p
+    </pre>
+    
+    <h2>Criando um novo usuário</h2>
+    <pre>
+        CREATE USER 'senac'@'localhost' IDENTIFIED BY 'senac123';
+        GRANT ALL PRIVILEGES ON * . * TO 'senac'@'localhost';
+        FLUSH PRIVILEGES;
+        exit
+    </pre>
+    
+    <h2>Acessa o servidor do MariaDB com o usuário criado</h2>
+    <pre>
+        mariadb -usenac -p
+    </pre>
+    
+    <h2>Cria um banco de dados</h2>
+    <pre>
+        create database webservices;
+    </pre>
+    
+    <h2>Marca um banco para ser utilizado</h2>
+    <pre>
+        use webservices;
+    </pre>
+    
+    <h2>Cria uma tabela de usuários</h2>
+    <pre>
+        create table usuarios (
+            id int not null primary key auto_increment,
+            login varchar(100) not null,
+            nome varchar(100) not null,
+            senha varchar(255) not null
+        );
+    </pre>
+    
+    <h2>Exibe as tabelas criadas</h2>
+    <pre>
+        show tables;
+    </pre>
+    
+    <h2>Sair do servidor do banco</h2>
+    <pre>
+        exit
+    </pre>
+    
+    <h2>Inserir dados na tabela de usuários</h2>
+    <pre>
+        INSERT INTO usuarios (nome, login, senha) VALUES
+        ('joao', 'João da Silva', '123456'),
+        ('maria', 'Maria Antonieta', '456789');
+    </pre>
+    
+    <h2>Exporta um banco</h2>
+    <pre>
+        mysqldump -usenac -p webservices &gt; backup.sql
+    </pre>
+    
+    <h2>Importa um banco</h2>
+    <pre>
+        mysql -usenac -p webservices_homologacao &lt; backup.sql
+    </pre>
+    
+    <h2>Cria uma tabela post no banco webservice</h2>
+    <pre>
+        create table post (
+            id int not null primary key auto_increment,
+            titulo varchar(255) not null,
+            descricao text not null
+        );
+    </pre>
+    
+    <h2>Faz um novo backup do banco e importa na homologação</h2>
+    <pre>
+        mysqldump -usenac -p webservices &gt; backup.sql
+        mysql -usenac -p webservices_homologacao &lt; backup.sql
+    </pre>
+            <img src="./img/ex_banco_de_dados.png" alt="">
+        </div>
+        <div class="project">
+            <strong><h1>6.</h1></strong> <h2>O que é um serviço ssh, e como ele permite acessar um servidor web para trasferir arquivos de uma máquina local e o servidor.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce interdum felis vel libero vestibulum.</p>
+        </div>
+        <div class="project">
+            <strong><h1>7.</h1></strong> <h2>Explique o que é um Linux e cite as principais distribuições usadas como servidor web.</h2>
+            <p> O linux é o kernel. O software do computador que é responsavel pôr se comunicar com o hardware do computador. Mas como ele é open source ele é usado em varios sistemas operacionais que recebem o nome de distribuições linux pq utilizão o kernel. Debian, Ubunto, CentOS, Fedora Server</p>
+        </div>
+        <div class="project">
+            <strong><h1>8.</h1></strong> <h2>Explidque alguns comandos basicos do Linux</h2>
+            <h2>No caso levaremos em questão que estamos usando uma distribuição da familia do debian</h2>
+                <h3>sudo apt update.</h3>
+                <p>Verifica se tem atualização</p>
+
+                <h3>sudo apt upgrade</h3>
+                <p>Atualiza o sistema operacional</p>
+
+                <h3>sudo adduser nome_usuario</h3>
+                <p>cria um novo usuário</p>
+
+                <h3>sudo usermod -a -G grupos nome_usuario</h3>
+                <p>adiciona um usuário em um grupo</p>
+
+                <h3>Flag --help</h3>
+                <p>mostra um manual do comando, explica como usar cada parâmetro. Em outras distibuições podemos usar o `man comando`</p>
+
+                <h3>login nome_usuario</h3>
+                <p>Loga com um usuário</p>
+                
+                <h3>exit</h3>
+                <p>Sai do usuário atual.</p>
+                
+                <h3>sudo apt install nome_de_um_programa</h3>
+                <p>instala um programa</p>
+ 
+        </div>
+    </section>
+    <footer>
+        &copy; Made By Ian
+    </footer>
+</body>
+</html>
